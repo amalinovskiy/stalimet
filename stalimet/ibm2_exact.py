@@ -1,13 +1,12 @@
-"""
-Modifies imb1 lexical translation model by giving maximum
-probability to exact matching words
-"""
-
 from nltk.translate.ibm2 import IBMModel2, IBMModel
 from nltk.translate import Alignment
 
 
 class IBMModel2Exact(IBMModel2):
+    """
+    Modifies imb1 lexical translation model by giving maximum
+    probability to exact matching words
+    """
 
     def __init__(self, sentence_aligned_corpus, iterations, probability_tables=None):
         super(IBMModel2, self).__init__(sentence_aligned_corpus)

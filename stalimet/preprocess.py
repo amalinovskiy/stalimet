@@ -29,3 +29,8 @@ class Preprocess:
         for i, line in enumerate(self.lines):
             self.lines[i] = ' '.join(word_tokenize(self.lines[i], self.language))
         return self
+
+    def split(self) -> 'Preprocess':
+        for i, line in enumerate(self.lines):
+            self.lines[i] = self.lines[i].split()
+        return self
