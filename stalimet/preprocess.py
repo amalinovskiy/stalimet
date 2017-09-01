@@ -2,9 +2,11 @@ from nltk.tokenize import word_tokenize
 import string
 
 
-def run_preprocess(path, language):
-    preprocess = Preprocess(open(path).readlines(), language)
-    return preprocess.lowercase().tokenize().remove_punctuation().lines
+def run_preprocess(path, language, keep_punctuation=False):
+    preprocess = Preprocess(open(path).readlines(), language).lowercase().tokenize()
+    if not keep_punctuation:
+        preprocess = preprocess.remove_punctuation()
+    return preprocess.lines
 
 
 class Preprocess:

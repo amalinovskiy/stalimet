@@ -36,9 +36,9 @@ class Stalimet:
         else:
             self._train_corpus = None
 
-    def train(self):
-        tgt = run_preprocess(self._tgt_path, self._language)
-        ref = run_preprocess(self._ref_path, self._language)
+    def train(self, keep_punctuation=False):
+        tgt = run_preprocess(self._tgt_path, self._language, keep_punctuation)
+        ref = run_preprocess(self._ref_path, self._language, keep_punctuation)
         self._corpus.build_parallel_corpus(tgt, ref)
 
         # if train corpus is specified we train alignment model on it and pass to main corpus,
